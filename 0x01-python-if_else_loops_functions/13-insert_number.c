@@ -4,8 +4,8 @@
 
 /**
  * insert_node - inserts a new node to a linked list
- * @head - head pointer
- * @number - input value
+ * @head: head pointer
+ * @number: input value
  * Return: address of the new node and NULL if it failed
  */
 
