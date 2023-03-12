@@ -3,31 +3,28 @@
 #include "lists.h"
 
 /**
- * insert_node - inserts a new node to a linked list
- * @head: head pointer
+ * insert_node - inserts new node to linked list
+ * @head: head of singly linked list
  * @number: input value
- * Return: address of the new node and NULL if it failed
+ * Return: the address of the new node, or NULL if it failed
  */
 
 listint_t *insert_node(listint_t **head, int number)
 {
-listint_t *new_node, *temp;
-temp = *head;
-if (!temp)
-{
-return (NULL);
-}
-new_node = malloc(sizeof(listint_t));
-if (!new_node)
-{
-return (NULL);
-}
-new_node->n = number;
-if (!temp || new_node->n >= number)
-{
-new_node->next = temp;
-new_node = *head;
-return (new_node);
-}
-return (new_node);
+	listint_t *new_node, *tmp1;
+
+	tmp1 = *head;
+	if (!head)
+		return (NULL);
+	new_node = malloc(sizeof(listint_t));
+	if (!new_node)
+		return (NULL);
+	new_node->n = number;
+	if (!tmp1 || tmp1->n >= number)
+	{
+		new_node->next = tmp1;
+		*head = new_node;
+		return (new_node);
+	}
+	return (new_node);
 }
